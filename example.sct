@@ -4,9 +4,11 @@
     <script language="JScript">
       <![CDATA[
         // Your script goes here
+        var shell = new ActiveXObject("WScript.Shell");
+        var temp = shell.ExpandEnvironmentStrings("%TEMP%");
         var fso = new ActiveXObject("Scripting.FileSystemObject");
-        var file = fso.CreateTextFile("C:\\Windows\\Temp\\sct_ran.txt", true);
-        file.WriteLine("SCT executed successfully!");
+        var file = fso.CreateTextFile(temp + "\\sct_ran.txt", true);
+        file.WriteLine("Executed successfully!");
         file.Close();
       ]]>
     </script>
